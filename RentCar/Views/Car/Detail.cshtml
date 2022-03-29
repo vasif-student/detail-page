@@ -1,0 +1,150 @@
+﻿@model CarDetailViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<!--==================== DETAIL START ====================-->
+<div class="car-detail-card-wrapper">
+
+    <div class="car-detail-card">
+        <!-- card left -->
+        <div class="car-detail-imgs">
+            <div class="img-display">
+                <div class="img-showcase">
+                    <img src="~/image/cars/retro-car-222.jpg" alt="car image">
+                    <img src="~/image/cars/bmw-sport-car.jpg" alt="car image">
+                    <img src="~/image/cars/chevrolet-camaro-ss-muscle-car.jpg" alt="car image">
+                    <img src="~/image/cars/bugatti-0000.jpg" alt="car image">
+                    <img src="~/image/cars/cadillac-7.jpg" alt="car image">
+                    <img src="~/image/cars/beach-red-car.jpg" alt="car image">
+                </div>
+            </div>
+            <div class="img-select">
+                <div class="img-item">
+                    <a href="#" data-id="1">
+                        <img src="~/image/cars/retro-car-222.jpg" alt="car image">
+                    </a>
+                </div>
+                <div class="img-item">
+                    <a href="#" data-id="2">
+                        <img src="~/image/cars/bmw-sport-car.jpg" alt="car image">
+                    </a>
+                </div>
+                <div class="img-item">
+                    <a href="#" data-id="3">
+                        <img src="~/image/cars/chevrolet-camaro-ss-muscle-car.jpg" alt="car image">
+                    </a>
+                </div>
+                <div class="img-item">
+                    <a href="#" data-id="4">
+                        <img src="~/image/cars/bugatti-0000.jpg" alt="car image">
+                    </a>
+                </div>
+                <div class="img-item">
+                    <a href="#" data-id="5">
+                        <img src="~/image/cars/cadillac-7.jpg" alt="car image">
+                    </a>
+                </div>
+                <div class="img-item">
+                    <a href="#" data-id="6">
+                        <img src="~/image/cars/beach-red-car.jpg" alt="car image">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- card right -->
+        <div class="car-content">
+            <h2 class="car-title">Toyota <i>Corolla</i></h2>
+            <a href="@Model.CarModel.Car.Website" class="car-link">rəsmi sayt</a>
+            <div class="car-rating">
+                @if (Model.CarModel.Rating == 5)
+                {
+                    for (int i = 1; i <= Model.CarModel.Rating; i++)
+                    {
+                        <i class="fa fa-star checked"></i>
+                    }
+                }
+                else
+                {
+                    byte dif = (byte)(5 - Model.CarModel.Rating);
+
+                    for (int i = 1; i <= Model.CarModel.Rating; i++)
+                    {
+                        <i class="fa fa-star checked"></i>
+                    }
+
+                    for (int i = 1; i <= dif; i++)
+                    {
+                        <i class="fa fa-star unchecked"></i>
+                    }
+                }
+                <span>@Model.CarModel.Rating</span>
+            </div>
+
+            <div class="car-price">
+                <p class="last-price">Köhnə Qiymət: <span>₼@Model.CarModel.OldPrice.00</span></p>
+                <p class="new-price">Yeni Qiymət: <span>₼@Model.CarModel.CurrentPrice.00</span></p>
+            </div>
+
+            <div class="car-detail">
+                <h2>Avtomobil haqqında: </h2>
+                <p>@Model.CarModel.Description</p>
+                <ul>
+                    <li>Şəhər: <span>@Model.CarModel.District.City.Name</span></li>
+                    <li>Ərazi: <span>@Model.CarModel.District.Name</span></li>
+                    <li>Marka: <span>@Model.CarModel.Car.BrandName</span></li>
+                    <li>Model: <span>@Model.CarModel.ModelName</span></li>
+                    <li>Buraxılış ili: <span>@Model.CarModel.ReleaseYear</span></li>
+                    <li>Rəng: <span>@Model.CarModel.Color</span></li>
+                    <li>Mühərrik: <span>@Model.CarModel.EngineSize L</span></li>
+                    <li>Mühərrikin gücü: <span>@Model.CarModel.HorsePower a.g.</span></li>
+                    <li>Yanacaq növü: <span>@Model.CarModel.Fuel</span></li>
+                    <li>Yürüş: <span>@Model.CarModel.MileAge km</span></li>
+                    <li>Sürət qutusu: <span>@Model.CarModel.Transmission</span></li>
+                </ul>
+            </div>
+
+            <div class="car-rent-info">
+                <button id="popupbtn" type="button" class="btn">Kirayələ</button>
+            </div>
+
+            <div class="detailpage-social-links">
+                <p>Share At: </p>
+                <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-pinterest"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--==================== DETAIL END ====================-->
+
+
+<!--==================== COMMENT START ====================-->
+<div class="comment__container">
+
+    <div class="comment__section">
+        <p id="alert" class="alertbox"></p>
+        <input type="text" class="form-control" placeholder="Şərh" id="text_comment">
+        <button type="submit" id="btn_add_comment" class="btn btn-primary">Şərh əlavə edin</button>
+    </div>
+
+    <div id="js-discussion">
+        <ul id="list_comments"></ul>
+    </div>
+
+</div>
+<!--==================== COMMENT END ====================-->

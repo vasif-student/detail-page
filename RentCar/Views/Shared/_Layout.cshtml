@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== BOOTSTRAP ===============-->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
+    <!--=============== FONT AWESOME ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/header.css">
+    <link rel="stylesheet" href="~/css/carousel.css">
+    <link rel="stylesheet" href="~/css/card.css">
+    <link rel="stylesheet" href="~/css/darkmode.css">
+    <link rel="stylesheet" href="~/css/footer.css">
+    <link rel="stylesheet" href="~/css/detail.css">
+    <link rel="stylesheet" href="~/css/accordion.css">
+    <link rel="stylesheet" href="~/css/loadmore.css">
+    <link rel="stylesheet" href="~/css/contact.css">
+    <link rel="stylesheet" href="~/css/map.css">
+    <link rel="stylesheet" href="~/css/modal.css">
+    <link rel="stylesheet" href="~/css/payment.css">
+    <link rel="stylesheet" href="~/css/videosection.css">
+    <link rel="stylesheet" href="~/css/partners.css">
+    <link rel="stylesheet" href="~/css/comment.css">
+    <link rel="stylesheet" href="~/css/about.css">
+
+
+    <!--=============== ICON ===============-->
+    <link rel="shortcut icon" href="~/image/icons/red-car-icon-removebg-preview.png" type="image">
+    <title>vsf car rental agency</title>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        @await Component.InvokeAsync("Header")
+
+        @await Component.InvokeAsync("Carousel")
+               
+        <!--==================== ACCORDION START ====================-->
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-item-header" onmousedown="bleep.play()">
+                    <h1>
+                        Axtarış et
+                    </h1>
+                </div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        <form method="post" action="">
+
+                            <!-- select -->
+                            <div class="search__select">
+                                <select class="select__brand">
+                                    <option value="0">Marka seç:</option>
+                                    <option value="1">Audi</option>
+                                    <option value="2">BMW</option>
+                                    <option value="3">Citroen</option>
+                                    <option value="4">Ford</option>
+                                    <option value="5">Honda</option>
+                                    <option value="6">Jaguar</option>
+                                    <option value="7">Land Rover</option>
+                                    <option value="8">Mercedes</option>
+                                    <option value="9">Mini</option>
+                                    <option value="10">Nissan</option>
+                                    <option value="11">Toyota</option>
+                                    <option value="12">Volvo</option>
+                                </select>
+
+                                <select class="select__model">
+                                    <option value="0">Model seç:</option>
+                                    <option value="1">Audi</option>
+                                    <option value="2">BMW</option>
+                                    <option value="3">Citroen</option>
+                                    <option value="4">Ford</option>
+                                    <option value="5">Honda</option>
+                                    <option value="6">Jaguar</option>
+                                    <option value="7">Land Rover</option>
+                                    <option value="8">Mercedes</option>
+                                    <option value="9">Mini</option>
+                                    <option value="10">Nissan</option>
+                                    <option value="11">Toyota</option>
+                                    <option value="12">Volvo</option>
+                                </select>
+
+                                <select class="select__city">
+                                    <option value="0">Şəhər seç:</option>
+                                    <option value="1">Bakı</option>
+                                    <option value="2">Şuşa</option>
+                                    <option value="3">Gəncə</option>
+                                    <option value="4">Sumqayıt</option>
+                                    <option value="5">Lənkəran</option>
+                                    <option value="6">Naxçıvan</option>
+                                    <option value="7">Balakən</option>
+                                    <option value="8">Quba</option>
+                                </select>
+
+                                <!-- start date -->
+                                <label for="start">Başlanğıc:</label>
+
+                                <input type="date" id="start" name="trip-start">
+
+                                <!-- end date -->
+                                <label for="end">Son:</label>
+
+                                <input type="date" id="end" name="trip-start">
+
+                                <!-- price input -->
+                                <label for="minPrice">Min:</label>
+                                <input type="number" id="minPrice" name="minPrice" min="0">
+                                <span>₼</span><br> <br> <br>
+
+                                <label for="maxPrice">Maks:</label>
+                                <input type="number" id="maxPrice" name="maxPrice" min="10">
+                                <span>₼</span>
+
+                            </div>
+
+
+                            <!-- submit button -->
+                            <div class="submit">
+                                <button class="btn" type="submit" value="Submit">Axtar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--==================== ACCORDION END ====================-->
+
+        @RenderBody()
+
+        <!--==================== FOOTER START ====================-->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer__col">
+                        <h4>Şirkət</h4>
+                        <ul>
+                            <li>
+                                <a href="#">Haqqımızda</a>
+                            </li>
+                            <li>
+                                <a href="#">Xidmətlərimiz</a>
+                            </li>
+                            <li>
+                                <a href="#">Gizlilik Siyasəti</a>
+                            </li>
+                            <li>
+                                <a href="#">Tərəfdaşlıq Proqramı</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <h4>Kömək</h4>
+                        <ul>
+                            <li>
+                                <a href="#">Sual-Cavab</a>
+                            </li>
+                            <li>
+                                <a href="#">Daşınma</a>
+                            </li>
+                            <li>
+                                <a href="#">Kompensasiya</a>
+                            </li>
+                            <li>
+                                <a href="#">Sifariş Statusu</a>
+                            </li>
+                            <li>
+                                <a href="payment.html">Ödəniş Növləri</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <h4>Onlayn Kirayə</h4>
+                        <ul>
+                            <li>
+                                <a href="#">Avtomobil</a>
+                            </li>
+                            <li>
+                                <a href="#">Saat</a>
+                            </li>
+                            <li>
+                                <a href="#">Ev</a>
+                            </li>
+                            <li>
+                                <a href="#">Paltar</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <h4>Bizi İzləyin</h4>
+                        <div class="social-links">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCPEmMq_L2w9aLN97Vvy_V0Q/videos">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://www.instagram.com/vasifcoder/">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; Vasif Hüseynov 2022</p>
+            </div>
+        </footer>
+        <!--==================== FOOTER END ====================-->
+
+
+    </div>
+
+    <!--=============== JAVASCRIPT ===============-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/detail.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/comment.js"></script>
+
+</body>
+</html>
