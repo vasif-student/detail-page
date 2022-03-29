@@ -1,0 +1,2 @@
+# detail-page
+detail-page
